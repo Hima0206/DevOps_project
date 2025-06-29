@@ -1,14 +1,11 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
+# Use Maven + Java 17 base image
 FROM maven:3.8.6-eclipse-temurin-17
 
-
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
-
+# Set working directory inside the container
 WORKDIR /opt/app
 
-COPY ${artifact} app.jar
+# Copy the built JAR file to the container
+COPY target/spring-boot-web.jar app.jar
 
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+# Run the Spring Boot application
+ENTRYPOINT ["java", "-jar", "app.jar"]
