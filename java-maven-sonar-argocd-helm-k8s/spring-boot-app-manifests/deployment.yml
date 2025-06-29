@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: himatejaawsdevops/devops:replaceImageTag
+        image: himatejaawsdevops/devops:25
         ports:
         - containerPort: 8080
